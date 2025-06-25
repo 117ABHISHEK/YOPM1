@@ -28,10 +28,11 @@
 📁 PROJECT STRUCTURE:
 
   /YOPM1
-   ├── home.html        # Main webpage layout  
-   ├── home.css         # Custom styling  
-   ├── home.js          # Weather logic + API call  
-   └── README.md        # This file
+  
+   ├── home.html           # Main webpage layout  
+   ├── home.css            # Custom styling  
+   ├── home.js             # Weather logic + API call  
+   └── README.md           # This file
 
 ─────────────────────────────────────────────
 
