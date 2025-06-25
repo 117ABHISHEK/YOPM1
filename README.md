@@ -62,7 +62,7 @@
 
 🧾 LICENSE:
 
-  MIT License © 2025 [117ABHISHEK](https://github.com/117ABHISHEK)  &  [ShitalPanhalkar1015e](https://github.com/ShitalPanhalkar1015) 
+  MIT License © 2025 [117ABHISHEK](https://github.com/117ABHISHEK)  &  [ShitalPanhalkar1015](https://github.com/ShitalPanhalkar1015) 
 
 
 ─────────────────────────────────────────────
@@ -71,7 +71,7 @@
 
   👨‍💻 Developed by:  
   - [117ABHISHEK](https://github.com/117ABHISHEK)  
-  - [ShitalPanhalkar1015e](https://github.com/ShitalPanhalkar1015) 
+  - [ShitalPanhalkar1015](https://github.com/ShitalPanhalkar1015) 
 
 ─────────────────────────────────────────────
 
@@ -82,7 +82,7 @@
   ⭐ Star it  
   🍴 Fork it  
   🧑‍💻 Follow [@117ABHISHEK](https://github.com/117ABHISHEK) &
-  👩‍💻 Follow [ShitalPanhalkar1015e](https://github.com/ShitalPanhalkar1015) 
+  👩‍💻 Follow [ShitalPanhalkar1015](https://github.com/ShitalPanhalkar1015) 
 
 
 
