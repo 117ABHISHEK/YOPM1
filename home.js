@@ -9,7 +9,7 @@ function handleKeyPress(event) {
 }
 
 function call() {
-  const APIKEY = "" // Replace when public
+  // let API_KEY = ""; // Replace when public 
   const city = document.getElementById("cityInput").value.trim()
 
   if (!city) {
@@ -17,7 +17,7 @@ function call() {
     return
   }
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=metric`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
 
   // Show loading indicator
   showLoading(true)
