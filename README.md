@@ -19,7 +19,8 @@ A minimal and responsive weather forecast app built with:
 ─────────────────────────────────────────────
 
 ⚙️ FEATURES:
-✅ Search weather by city  
+
+ ✅ Search weather by city  
  ✅ Shows temperature, humidity, wind  
  ✅ Clean, responsive UI (Bootstrap-ready)  
  ✅ Ready for dark mode integration
