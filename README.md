@@ -31,13 +31,13 @@ A minimal and responsive weather forecast app built with:
 
 /YOPM1
 ├── public/
-│   ├── index.css    # Custom styling
-│   └── index.js     # Weather logic + API calls
+│   ├── index.css        # Custom styling
+│   └── index.js         # Weather logic + API calls
 ├── src/
-│   └── config.js   # API configuration
-├── index.html      # Main webpage layout
-├── .gitignore     # Git ignore configuration
-└── README.md      # This file
+│   └── config.js        # API configuration
+├── index.html           # Main webpage layout
+├── .gitignore          # Git ignore configuration
+└── README.md           # This file
 
 ─────────────────────────────────────────────
 
