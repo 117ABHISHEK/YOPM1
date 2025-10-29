@@ -50,6 +50,34 @@ body {
   box-shadow: 0 4px 15px rgba(238, 90, 36, 0.4);
 }
 
+.loading-container {
+  width: 100%;
+  margin: 2rem auto;
+  color: white;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loading-text {
+  color: white;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
 .search-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(238, 90, 36, 0.6);

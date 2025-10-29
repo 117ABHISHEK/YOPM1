@@ -1,15 +1,23 @@
-// Hide weather card initially
-document.getElementById("weatherCard").style.display = "none"
+// Import configuration
+import config from '../src/config.js';
 
-// Handle Enter key press in input field
-function handleKeyPress(event) {
-  if (event.key === "Enter") {
-    call()
-  }
-}
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide weather card initially
+    document.getElementById("weatherCard").style.display = "none";
 
-function call() {
-  const apiKey = "" // Replace when public
+    // Add event listeners
+    document.getElementById("cityInput").addEventListener('keypress', (event) => {
+        if (event.key === "Enter") {
+            getWeather();
+        }
+    });
+
+    document.getElementById("searchBtn").addEventListener('click', getWeather);
+});
+
+function getWeather() {
+  const { baseUrl, apiKey, units } = config.weatherApi;
   const city = document.getElementById("cityInput").value.trim()
 
   if (!city) {
@@ -23,9 +31,20 @@ function call() {
   showLoading(true)
 
   fetch(url)
-    .then((response) => {
-      if (!response.ok) throw new Error("City not found")
-      return response.json()
+    .then(async (response) => {
+      const data = await response.json();
+      
+      if (!response.ok) {
+        if (response.status === 401) {
+          throw new Error("Invalid API key. Please check your configuration.");
+        } else if (response.status === 404 || data.cod === '404') {
+          throw new Error(`City "${city}" not found. Please check the spelling.`);
+        } else {
+          throw new Error(data.message || "Failed to fetch weather data");
+        }
+      }
+      
+      return data;
     })
     .then((data) => {
       // Hide loading indicator
@@ -46,7 +65,11 @@ function call() {
     })
     .catch((error) => {
       showLoading(false)
-      showError("Error: " + error.message)
+      showError(error.message)
+      
+      // Hide weather card if it was previously shown
+      const weatherCard = document.getElementById("weatherCard")
+      weatherCard.style.display = "none"
     })
 }
 
@@ -118,7 +141,7 @@ function showLoading(show) {
     loadingIndicator.style.display = "block"
     weatherCard.style.display = "none"
     searchBtn.disabled = true
-    searchBtn.innerHTML = '<div class="loading" style="width: 20px; height: 20px; border-width: 2px;"></div>'
+    searchBtn.innerHTML = '<i class="bi bi-hourglass-split"></i>'
   } else {
     loadingIndicator.style.display = "none"
     searchBtn.disabled = false
