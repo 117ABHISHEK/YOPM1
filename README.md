@@ -32,9 +32,9 @@ A minimal and responsive weather forecast app built with:
 /YOPM1
 ├── public/
 │   ├── index.css        # Custom styling
-│   └── index.js         # Weather logic + API calls
+│   ├── index.js         # Weather logic + API calls
+│   └── config.js        # Configuration settings
 ├── index.html           # Main webpage layout
-├── .env                 # Environment variables
 ├── .gitignore          # Git ignore configuration
 └── README.md           # This file
 
@@ -44,13 +44,25 @@ A minimal and responsive weather forecast app built with:
 
 1. Go to 👉 https://openweathermap.org/api
 2. Create an account → get your **free API key**
-3. Create a `.env` file in the root directory and add your configuration:
 
+For Local Development:
+3. Create a `.env` file in the root directory:
    ```env
    WEATHER_API_KEY=your_api_key_here
    WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5
    WEATHER_API_UNITS=metric
    ```
+
+For Vercel Deployment:
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the project directory
+3. Set up environment variables in Vercel Dashboard:
+   - Go to your project settings
+   - Add the following environment variables:
+     - `WEATHER_API_KEY`
+     - `WEATHER_API_BASE_URL`
+     - `WEATHER_API_UNITS`
+4. Deploy with: `vercel --prod`
 
 4. Open `index.html` in your browser (use a local server due to ES modules)
 5. Forecast ready! ☀️🌧️🌪️
