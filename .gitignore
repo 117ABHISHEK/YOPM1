@@ -3,9 +3,8 @@
 
 # Environment variables
 .env
-
-# Config file (as requested)
-src/config.js
+.env.local
+.env.*.local
 
 # IDE and Editor files
 .vscode/

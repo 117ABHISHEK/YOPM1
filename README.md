@@ -33,9 +33,8 @@ A minimal and responsive weather forecast app built with:
 ├── public/
 │   ├── index.css        # Custom styling
 │   └── index.js         # Weather logic + API calls
-├── src/
-│   └── config.js        # API configuration
 ├── index.html           # Main webpage layout
+├── .env                 # Environment variables
 ├── .gitignore          # Git ignore configuration
 └── README.md           # This file
 
@@ -45,16 +44,12 @@ A minimal and responsive weather forecast app built with:
 
 1. Go to 👉 https://openweathermap.org/api
 2. Create an account → get your **free API key**
-3. In `src/config.js`, add your API key:
+3. Create a `.env` file in the root directory and add your configuration:
 
-   ```js
-   const config = {
-       weatherApi: {
-           baseUrl: 'https://api.openweathermap.org/data/2.5',
-           apiKey: 'YOUR_API_KEY',  // Add your API key here
-           units: 'metric'
-       }
-   };
+   ```env
+   WEATHER_API_KEY=your_api_key_here
+   WEATHER_API_BASE_URL=https://api.openweathermap.org/data/2.5
+   WEATHER_API_UNITS=metric
    ```
 
 4. Open `index.html` in your browser (use a local server due to ES modules)

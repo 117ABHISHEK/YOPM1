@@ -1,6 +1,3 @@
-// Import configuration
-import config from '../src/config.js';
-
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Hide weather card initially
@@ -14,10 +11,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById("searchBtn").addEventListener('click', getWeather);
+
+    // Load environment variables
+    loadEnvVariables();
 });
 
+// Function to load environment variables
+async function loadEnvVariables() {
+    try {
+        const response = await fetch('/.env');
+        const text = await response.text();
+        
+        // Parse .env file
+        const envVars = text.split('\n').reduce((acc, line) => {
+            // Skip comments and empty lines
+            if (line.startsWith('#') || !line.trim()) return acc;
+            
+            const [key, value] = line.split('=');
+            acc[key.trim()] = value.trim();
+            return acc;
+        }, {});
+
+        // Store in window object for global access
+        window.env = envVars;
+    } catch (error) {
+        console.error('Error loading environment variables:', error);
+        showError('Failed to load configuration. Please try again later.');
+    }
+}
+
 function getWeather() {
-  const { baseUrl, apiKey, units } = config.weatherApi;
+  const apiKey = window.env?.WEATHER_API_KEY;
+  const baseUrl = window.env?.WEATHER_API_BASE_URL;
+  const units = window.env?.WEATHER_API_UNITS;
+  
+  if (!apiKey || !baseUrl) {
+    showError('Weather API configuration is missing. Please check the setup.');
+    return;
+  }
+
   const city = document.getElementById("cityInput").value.trim()
 
   if (!city) {
