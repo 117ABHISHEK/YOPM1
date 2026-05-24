@@ -1,74 +1,75 @@
-<!- - Year of Projects - M1 - ->
-<!- - Now we need to make the HTML code.. use all things  like Bootstrap and Bootstrap Icons  - ->
-<! - - ----------------------------------------------------------------------------------------------- - ->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WeatherNow - Beautiful Weather App</title>
-    <link rel="stylesheet" href="./public/index.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/api/env.js"></script>
-    <script type="module" src="./public/index.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeatherNow</title>
+  <link rel="stylesheet" href="./public/index.css" />
 </head>
 <body>
-    <div class="container d-flex flex-column align-items-center justify-content-center min-vh-100">
-        <h1 class="main-title text-center">🌦️ WeatherNow</h1>
+  <main class="page">
+    <section class="weather-card">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-icon">☁️</span>
+          <div>
+            <h1>WeatherNow</h1>
+            <p class="subtitle">Fast weather search with OpenWeatherMap</p>
+          </div>
+        </div>
+        <div class="meta">
+          <span>Secure</span>
+          <span>API key hidden</span>
+        </div>
+      </header>
 
-        <div class="input-group mb-5 w-75 search-container">
-            <input id="cityInput" type="text" class="form-control search-input" placeholder="Enter city name...">
-            <div class="input-group-append">
-                <button class="btn search-btn" id="searchBtn">
-                    <i class="bi bi-search"></i> Get Weather
-                </button>
-            </div>
+      <section class="search-panel">
+        <label class="search-label" for="cityInput">City name</label>
+        <div class="search-row">
+          <input id="cityInput" type="text" placeholder="e.g. London" autocomplete="off" />
+          <button id="searchBtn">Search</button>
+        </div>
+        <p class="hint">Type a city and press Enter or click Search.</p>
+      </section>
+
+      <div id="message" class="message"></div>
+
+      <section id="resultCard" class="result-card hidden">
+        <div class="weather-header">
+          <div class="weather-icon" id="weatherIcon">☀️</div>
+          <div>
+            <p class="city-name" id="cityName"></p>
+            <p class="weather-desc" id="weatherDesc"></p>
+          </div>
         </div>
 
-        <div id="loadingIndicator" class="text-center loading-container" style="display: none;">
-            <div class="spinner"></div>
-            <p class="loading-text mt-2">Fetching weather data...</p>
+        <div class="temperature-block">
+          <span id="temperature"></span>
+          <small>Feels like <span id="feelsLike"></span></small>
         </div>
 
-        <div class="card text-center" id="weatherCard" style="display: none;">
-            <div class="card-body p-4">
-                <div id="weather-icon" class="weather-icon">
-                    <i class="bi bi-cloud cloud-icon"></i>
-                </div>
-                <h2 id="city-name" class="city-name"></h2>
-                <h3 id="temperature" class="temperature"></h3>
-                <p id="condition" class="condition"></p>
-                
-                <div class="weather-details" id="weatherDetails" style="display: none;">
-                    <div class="detail-item">
-                        <span class="detail-label">Feels like</span>
-                        <span class="detail-value" id="feels-like">--°C</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Humidity</span>
-                        <span class="detail-value" id="humidity">--%</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Wind Speed</span>
-                        <span class="detail-value" id="wind-speed">-- km/h</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">Pressure</span>
-                        <span class="detail-value" id="pressure">-- hPa</span>
-                    </div>
-                </div>
-            </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>Humidity</span>
+            <strong id="humidity"></strong>
+          </div>
+          <div class="stat-card">
+            <span>Wind</span>
+            <strong id="windSpeed"></strong>
+          </div>
+          <div class="stat-card">
+            <span>Pressure</span>
+            <strong id="pressure"></strong>
+          </div>
+          <div class="stat-card">
+            <span>Condition</span>
+            <strong id="condition"></strong>
+          </div>
         </div>
+      </section>
+    </section>
+  </main>
 
-        <!-- Loading indicator -->
-        <div id="loadingIndicator" style="display: none;">
-            <div class="loading"></div>
-            <p class="text-white mt-3">Fetching weather data...</p>
-        </div>
-    </div>
+  <script src="./public/index.js"></script>
 </body>
 </html>
